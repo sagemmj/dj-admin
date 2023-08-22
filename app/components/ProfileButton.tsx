@@ -8,7 +8,7 @@ export default function ProfileButton() {
       href="/profile"
       p="0"
       display="flex"
-      fontSize="14px"
+      fontSize="16px"
       bg="#ffffff"
       color="#111111"
       fontWeight="700"
@@ -24,7 +24,7 @@ export default function ProfileButton() {
         color: "#ffffff",
       }}
     >
-      <FaHeadphones fontSize="12px" />
+      <FaHeadphones fontSize="14px" />
       MY PROFILE
     </Box>
   );
