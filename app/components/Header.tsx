@@ -15,14 +15,15 @@ export default function Header() {
           maxW="1000px"
           alignItems="center"
           justifyContent={"space-between"}
-          px={{ base: "10px", md: "0px" }}
-          py="10px"
+          p="10px"
         >
-          <Image
-            id="logo"
-            w="120px"
-            src="https://media.djfan.app/images/djfan-logo-beta.png"
-          />
+          <Box as="a" href="/">
+            <Image
+              id="logo"
+              w="120px"
+              src="https://media.djfan.app/images/djfan-logo-beta.png"
+            />
+          </Box>
           <ProfileButton />
         </Flex>
       </Flex>
@@ -35,10 +36,10 @@ export default function Header() {
         <Flex
           w="100%"
           maxW="1000px"
-          px={{ base: "20px", md: "10px" }}
+          px="20px"
           py="10px"
           color="#ffffff"
-          fontSize="20px"
+          fontSize="18px"
           fontWeight="900"
           gap="25px"
         >
