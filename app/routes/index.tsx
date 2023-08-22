@@ -11,21 +11,15 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
   useDisclosure,
+  ModalFooter,
 } from "@chakra-ui/react";
 import PayoutHistory from "~/components/payouts/PayoutHistory";
 import {
   FaArrowRight,
-  FaHeadset,
-  FaInfo,
   FaQuestionCircle,
   FaStripeS,
   FaTimes,
-  FaTimesCircle,
   FaWallet,
 } from "react-icons/fa";
 import Header from "~/components/Header";
@@ -137,7 +131,7 @@ export default function Payouts() {
                     View Tutorial
                   </Link>
                 </HStack>
-                <Modal onClose={onClose} isOpen={isOpen}>
+                <Modal onClose={onClose} isOpen={isOpen} isCentered>
                   <ModalOverlay />
                   <ModalContent mx="20px">
                     <Stack p="20px" gap="15px">
@@ -164,9 +158,10 @@ export default function Payouts() {
                           allowFullScreen
                         />
                       </AspectRatio>
-                      <HStack justifyContent="center">
+                      <HStack justifyContent="center" zIndex="1">
                         <Link
                           bg="#9b5de5"
+                          href="/"
                           color="#ffffff"
                           fontWeight="600"
                           fontSize="14px"
@@ -176,6 +171,9 @@ export default function Payouts() {
                           borderRadius="5px"
                           _hover={{
                             bg: "#111111",
+                          }}
+                          _focus={{
+                            boxShadow: "none",
                           }}
                         >
                           More Tutorials
@@ -189,6 +187,7 @@ export default function Payouts() {
                           borderRadius="5px"
                           display="flex"
                           gap="5px"
+                          href="/"
                         >
                           Contact Support
                           <FaArrowRight fontSize="12px" />
