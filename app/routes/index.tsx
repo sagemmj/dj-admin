@@ -1,9 +1,37 @@
-import { Flex, Heading, Text, Stack, Button } from "@chakra-ui/react";
+import {
+  AspectRatio,
+  Box,
+  Flex,
+  Heading,
+  Link,
+  Text,
+  Stack,
+  Button,
+  HStack,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 import PayoutHistory from "~/components/payouts/PayoutHistory";
-import { FaStripeS, FaWallet } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaHeadset,
+  FaInfo,
+  FaQuestionCircle,
+  FaStripeS,
+  FaTimes,
+  FaTimesCircle,
+  FaWallet,
+} from "react-icons/fa";
 import Header from "~/components/Header";
 
 export default function Payouts() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Flex
       w="100%"
@@ -103,6 +131,72 @@ export default function Payouts() {
                 >
                   LINK STRIPE ACCOUNT
                 </Button>
+                <HStack color="#111" gap="5px">
+                  <FaQuestionCircle />
+                  <Link fontWeight="600" onClick={onOpen}>
+                    View Tutorial
+                  </Link>
+                </HStack>
+                <Modal onClose={onClose} isOpen={isOpen}>
+                  <ModalOverlay />
+                  <ModalContent mx="20px">
+                    <Stack p="20px" gap="15px">
+                      <Box
+                        as="a"
+                        position="absolute"
+                        top="10px"
+                        right="10px"
+                        onClick={onClose}
+                      >
+                        <FaTimes fontSize="20px" />
+                      </Box>
+                      <Heading
+                        fontSize={{ base: "16px", md: "20px" }}
+                        lineHeight="1em"
+                        textAlign="center"
+                      >
+                        How to connect your payout account
+                      </Heading>
+                      <AspectRatio width="100%" height="220px">
+                        <iframe
+                          title="Payout Tutorial"
+                          src="https://www.youtube.com/embed/o3JKJlsGvFw"
+                          allowFullScreen
+                        />
+                      </AspectRatio>
+                      <HStack justifyContent="center">
+                        <Link
+                          bg="#9b5de5"
+                          color="#ffffff"
+                          fontWeight="600"
+                          fontSize="14px"
+                          lineHeight="1em"
+                          py="8px"
+                          px="10px"
+                          borderRadius="5px"
+                          _hover={{
+                            bg: "#111111",
+                          }}
+                        >
+                          More Tutorials
+                        </Link>
+                        <Link
+                          fontWeight="600"
+                          fontSize="14px"
+                          lineHeight="1em"
+                          py="8px"
+                          px="10px"
+                          borderRadius="5px"
+                          display="flex"
+                          gap="5px"
+                        >
+                          Contact Support
+                          <FaArrowRight fontSize="12px" />
+                        </Link>
+                      </HStack>
+                    </Stack>
+                  </ModalContent>
+                </Modal>
               </Flex>
             </Flex>
           </Flex>
