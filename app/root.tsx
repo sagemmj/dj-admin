@@ -17,7 +17,7 @@ export const meta: MetaFunction = () => ({
 
 function Document({
   children,
-  title = "App title",
+  title = "DJfan Admin",
 }: {
   children: React.ReactNode;
   title?: string;
@@ -28,6 +28,7 @@ function Document({
         <Meta />
         <title>{title}</title>
         <Links />
+        <script defer src="https://unpkg.com/@tinybirdco/flock.js" data-host="https://api.tinybird.co" data-token="p.eyJ1IjogImNlZGJmMDQ3LTllNzEtNDU5NS1iMTRiLWNmMGYzN2ZmY2RjMCIsICJpZCI6ICIxM2M1ZTYxNy0wM2NiLTQ4OTAtYjM3MC1mMWUzYTgyY2JhOTEiLCAiaG9zdCI6ICJldV9zaGFyZWQifQ.VTuABOp2Gq8Wxs6tTCBiCLAmHQZUlYoJDVrAsHHr2q0"></script>
       </head>
       <body>
         {children}
