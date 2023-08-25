@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <Box>
       <Flex
-        bg="black"
+        bg="#111111"
         borderBottom="1px solid #ffffff"
         w="100%"
         justifyContent="center"
