@@ -41,6 +41,15 @@ const SideMenuBody = () => {
       </Box>
       <Stack px="20px" py="20px">
         <Box fontSize="18px" fontWeight="600" color="#6b46c1">
+          Insights
+        </Box>
+        <BoxLink href="/fans" text="Your Fans" />
+
+        <Box py="10px">
+          <Divider borderColor="#6b46c1" />
+        </Box>
+
+        <Box fontSize="18px" fontWeight="600" color="#6b46c1">
           Create
         </Box>
         <BoxLink href="/imagepost" text="Image Post" />
