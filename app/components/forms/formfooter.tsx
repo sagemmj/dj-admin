@@ -6,7 +6,7 @@ import {
   MenuButton,
   MenuList,
 } from "@chakra-ui/react";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaEdit } from "react-icons/fa";
 
 export default function FormFooter() {
   return (
@@ -15,33 +15,36 @@ export default function FormFooter() {
       mt="15px"
       w={{ base: "100%", sm: "500px" }}
     >
-      <Box
-        as="a"
-        href="/"
-        fontWeight="500"
-        display="flex"
-        alignItems="center"
-        gap="4px"
-      >
-        <FaArrowLeft fontSize="12px" />
-        Return to Profile
-      </Box>
+      <HStack gap="4px">
+        <FaArrowLeft fontSize="14px" />
+        <Box as="a" href="/" fontWeight="500" fontSize="16px" lineHeight="1em">
+          Return to Profile
+        </Box>
+      </HStack>
+
       <Menu>
-        <MenuButton fontWeight="500">Change Post Type</MenuButton>
+        <MenuButton fontWeight="500">
+          <HStack gap="6px">
+            <Box fontSize="16px" lineHeight="1em">
+              Change Post Type
+            </Box>
+            <FaEdit fontSize="18px" color="#111" />
+          </HStack>
+        </MenuButton>
         <MenuList>
-          <MenuItem as="a" href="#">
+          <MenuItem as="a" href="/imagepost">
             Image Post
           </MenuItem>
-          <MenuItem as="a" href="#">
+          <MenuItem as="a" href="/videopost">
             Video Post
           </MenuItem>
-          <MenuItem as="a" href="#">
+          <MenuItem as="a" href="/audiopost">
             Audio Post
           </MenuItem>
-          <MenuItem as="a" href="#">
+          <MenuItem as="a" href="/tourdate">
             Tour Date
           </MenuItem>
-          <MenuItem as="a" href="#">
+          <MenuItem as="a" href="/product">
             New Product
           </MenuItem>
         </MenuList>

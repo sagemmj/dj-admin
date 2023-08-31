@@ -16,15 +16,7 @@ import { FaArrowRight } from "react-icons/fa";
 import HeaderAdmin from "~/components/HeaderAdmin";
 import FormFooter from "~/components/forms/formfooter";
 
-export default function AudioPost() {
-  const [selectedButton, setSelectedButton] = React.useState("");
-  const [bgColor, setBgColor] = React.useState("");
-
-  const handleButtonClick = (buttonId: string) => {
-    setSelectedButton(buttonId);
-    setBgColor(buttonId === "single" || buttonId === "multiple" ? "black" : "");
-  };
-
+export default function TextPost() {
   return (
     <Flex
       w="100%"
@@ -61,66 +53,14 @@ export default function AudioPost() {
                 gap="6px"
                 py="15px"
               >
-                Create Audio Post
+                Create Text Post
               </Heading>
             </Flex>
             <Stack px="20px" pt="10px" pb="20px">
-              <Box
-                color="#111"
-                fontSize="16px"
-                fontWeight="600"
-                lineHeight="1em"
-                mb="5px"
-              >
-                Select Post Type
-              </Box>
-              <HStack mb={4}>
-                <Button
-                  onClick={() => handleButtonClick("single")}
-                  bg={selectedButton === "single" ? "black" : "#300a6e"}
-                  color={selectedButton === "single" ? "white" : "white"}
-                  _hover={{ bg: "#6000fc" }}
-                >
-                  Audio Link
-                </Button>
-                <Button
-                  onClick={() => handleButtonClick("multiple")}
-                  bg={selectedButton === "multiple" ? "black" : "#300a6e"}
-                  color={selectedButton === "multiple" ? "white" : "white"}
-                  _hover={{ bg: "#6000fc" }}
-                >
-                  Upload Audio
-                </Button>
-              </HStack>
               <FormControl mb={4}>
                 <Textarea placeholder="Write something about this post..." />
               </FormControl>
-              <FormControl
-                mb={4}
-                id="single"
-                style={{
-                  display: selectedButton === "single" ? "block" : "none",
-                }}
-              >
-                <FormLabel>Audio Link</FormLabel>
-                <Input
-                  type="text"
-                  placeholder="e.g. https://soundcloud.com/..."
-                />
-                <Box lineHeight="1em" fontSize="12px" mt="10px">
-                  <b>Accepted links</b>: Soundcloud, Spotify, Mixcloud.
-                </Box>
-              </FormControl>
-              <FormControl
-                mb={4}
-                id="multiple"
-                style={{
-                  display: selectedButton === "multiple" ? "block" : "none",
-                }}
-              >
-                <FormLabel>Upload Audio File</FormLabel>
-                <input type="file" accept="audio/*" />
-              </FormControl>
+
               <FormControl mb={4}>
                 <FormLabel color="#111" fontSize="16px" fontWeight="600">
                   Who can view this post?
