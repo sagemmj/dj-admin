@@ -9,7 +9,6 @@ import {
   Tab,
   TabPanel,
 } from "@chakra-ui/react";
-import Header from "~/components/Header";
 import SubscriberStats from "~/components/stats/SubscribersStats";
 import Earnings30 from "~/components/stats/Earnings30";
 import Earnings365 from "~/components/stats/Earnings365";

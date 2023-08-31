@@ -1,13 +1,4 @@
-import {
-  Button,
-  Flex,
-  HStack,
-  Stack,
-  Avatar,
-  Box,
-  VStack,
-  Image,
-} from "@chakra-ui/react";
+import { Flex, Avatar, Box, Image } from "@chakra-ui/react";
 
 export default function ProfileImages() {
   return (

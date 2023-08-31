@@ -1,4 +1,4 @@
-import { Box, DrawerBody, Stack, HStack, Divider } from "@chakra-ui/react";
+import { Box, Stack, Divider } from "@chakra-ui/react";
 import { FaHeadphones } from "react-icons/fa";
 
 type BoxLinkProps = {

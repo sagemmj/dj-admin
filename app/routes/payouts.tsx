@@ -21,7 +21,6 @@ import {
   FaTimes,
   FaWallet,
 } from "react-icons/fa";
-import Header from "~/components/Header";
 import EarningsMenu from "~/components/payouts/EarningsMenu";
 import HeaderAdmin from "~/components/HeaderAdmin";
 

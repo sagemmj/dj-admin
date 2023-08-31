@@ -1,18 +1,13 @@
 import {
   Flex,
-  Button,
   Table,
   TableContainer,
   Tbody,
   Td,
   Th,
   Thead,
-  Text,
-  Link,
   Tr,
-  Heading,
 } from "@chakra-ui/react";
-import { FaMusic, FaRegHeart } from "react-icons/fa";
 
 export default function PayoutHistory() {
   return (

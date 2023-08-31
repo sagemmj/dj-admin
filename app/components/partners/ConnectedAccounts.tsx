@@ -1,7 +1,6 @@
 import {
   Avatar,
   Flex,
-  Button,
   Table,
   TableContainer,
   Tbody,
@@ -9,7 +8,6 @@ import {
   Th,
   Thead,
   Text,
-  Link,
   Tr,
   Heading,
   Stack,

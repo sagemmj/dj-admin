@@ -1,27 +1,16 @@
 import {
-  Box,
   Button,
   Flex,
   FormControl,
   FormLabel,
   Heading,
-  HStack,
-  Select,
   Stack,
-  Text,
   Textarea,
   Input,
-  FormErrorMessage,
-  Image,
-  NumberInput,
-  NumberInputField,
-  Center,
-  Container,
 } from "@chakra-ui/react";
-import { FaArrowRight, FaImages } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import FormFooter from "~/components/forms/formfooter";
 import HeaderAdmin from "~/components/HeaderAdmin";
-import FileChoices from "~/components/product/FileChoices";
 
 export default function TourDate() {
   return (

@@ -10,10 +10,9 @@ import {
   Select,
   Stack,
   Input,
-  Text,
   Textarea,
 } from "@chakra-ui/react";
-import { FaArrowRight, FaImages } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import FormFooter from "~/components/forms/formfooter";
 import HeaderAdmin from "~/components/HeaderAdmin";
 
