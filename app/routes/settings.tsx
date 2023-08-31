@@ -12,6 +12,14 @@ import ProfileLinks from "~/components/profilesettings/ProfileLinks";
 import ProfileSettings from "~/components/profilesettings/ProfileSettings";
 import AccountSettings from "~/components/profilesettings/AccountSettings";
 
+const tabStyle = {
+  fontSize: { base: "20px", md: "16px" },
+};
+
+const hiddenWord = {
+  display: { base: "none", md: "unset" },
+};
+
 export default function Settings() {
   return (
     <Flex
@@ -28,14 +36,21 @@ export default function Settings() {
           pt="15px"
           variant="soft-rounded"
           colorScheme="green"
-          w={{ base: "95%", sm: "800px" }}
-          px="20px"
+          w={{ base: "100%", sm: "800px" }}
+          px={{ base: "10px", sm: "20px" }}
         >
           <Box bg="white" px="10px" py="10px" borderRadius="10px">
             <TabList>
-              <Tab>Profile Settings</Tab>
-              <Tab>Profile Links</Tab>
-              <Tab>Account Settings</Tab>
+              <Tab {...tabStyle}>
+                Profile
+                <Box {...hiddenWord}>&nbsp;Settings</Box>
+              </Tab>
+              <Tab {...tabStyle}>
+                <Box {...hiddenWord}>Profile&nbsp;</Box> Links
+              </Tab>
+              <Tab {...tabStyle}>
+                Account <Box {...hiddenWord}>&nbsp;Settings</Box>
+              </Tab>
             </TabList>
           </Box>
           <TabPanels>

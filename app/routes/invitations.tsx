@@ -11,6 +11,8 @@ import ConnectedAccounts from "~/components/partners/ConnectedAccounts";
 import Header from "~/components/Header";
 import { FaLink, FaCopy } from "react-icons/fa";
 import QRcode from "~/components/partners/QRcode";
+import HeaderAdmin from "~/components/HeaderAdmin";
+import EarningsMenu from "~/components/payouts/EarningsMenu";
 
 export default function Invitations() {
   return (
@@ -22,7 +24,8 @@ export default function Invitations() {
       bg="#ececec"
       pb="50px"
     >
-      <Header />
+      <HeaderAdmin />
+      <EarningsMenu />
       <Flex w="100%" justifyContent="center">
         <Flex
           flexDirection="column"

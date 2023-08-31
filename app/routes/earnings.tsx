@@ -14,6 +14,8 @@ import SubscriberStats from "~/components/stats/SubscribersStats";
 import Earnings30 from "~/components/stats/Earnings30";
 import Earnings365 from "~/components/stats/Earnings365";
 import EarningsAllTime from "~/components/stats/EarningsAllTime";
+import HeaderAdmin from "~/components/HeaderAdmin";
+import EarningsMenu from "~/components/payouts/EarningsMenu";
 
 export default function Earnings() {
   return (
@@ -25,7 +27,8 @@ export default function Earnings() {
       bg="#ececec"
       pb="50px"
     >
-      <Header />
+      <HeaderAdmin />
+      <EarningsMenu />
       <Flex w="100%" justifyContent="center">
         <Flex
           flexDirection="column"

@@ -5,14 +5,7 @@ import {
   Heading,
   Link,
   Text,
-  Stack,
-  Button,
-  HStack,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  useDisclosure,
-  ModalFooter,
+  Center,
 } from "@chakra-ui/react";
 import PayoutHistory from "~/components/payouts/PayoutHistory";
 import {
@@ -22,10 +15,40 @@ import {
   FaTimes,
   FaWallet,
 } from "react-icons/fa";
-import Header from "~/components/Header";
-
-export default function Payouts() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+import HeaderAdmin from "~/components/HeaderAdmin";
+const boxes = [
+  {
+    text: "Create Post",
+    imageUrl: "https://media.djfan.app/images/create.jpg",
+    linkUrl: "/create",
+  },
+  {
+    text: "Create Product",
+    imageUrl: "https://media.djfan.app/images/product.jpg",
+    linkUrl: "/product",
+  },
+  {
+    text: "Earnings",
+    imageUrl: "https://media.djfan.app/images/earnings.jpg",
+    linkUrl: "/earnings",
+  },
+  {
+    text: "My Fans",
+    imageUrl: "https://media.djfan.app/images/fans.jpg",
+    linkUrl: "/fans",
+  },
+  {
+    text: "Settings",
+    imageUrl: "https://media.djfan.app/images/settings.jpg",
+    linkUrl: "/settings",
+  },
+  {
+    text: "Invitations",
+    imageUrl: "https://media.djfan.app/images/invitations.jpg",
+    linkUrl: "/invitations",
+  },
+];
+export default function Index() {
   return (
     <Flex
       w="100%"
@@ -35,7 +58,7 @@ export default function Payouts() {
       bg="#ececec"
       pb="50px"
     >
-      <Header />
+      <HeaderAdmin />
       <Flex w="100%" justifyContent="center">
         <Flex
           flexDirection="column"
@@ -45,166 +68,31 @@ export default function Payouts() {
           pt="25px"
           px="15px"
         >
-          <Stack gap="10px">
-            <Heading fontSize="30px" lineHeight="1em" alignSelf="flex-start">
-              Payouts
-            </Heading>
-            <Text lineHeight="1em" alignSelf="flex-start">
-              View and keep track of your payouts.
-            </Text>
-          </Stack>
           <Flex h="100%" justifyContent="space-between" wrap="wrap" gap="30px">
-            <Flex
-              bg="#ffffff"
-              borderRadius="10px"
-              overflow="hidden"
-              w={{ base: "100%", md: "60%" }}
-              flexDir="column"
-            >
-              <Flex bg="#9b5de5" px="20px" py="6px">
-                <Text fontSize="18px" fontWeight="600" color="white">
-                  Available for Payout
-                </Text>
-              </Flex>
-              <Flex
-                flexDirection="column"
-                alignItems="flex-start"
-                justifyContent="center"
-                gap="5px"
-                height="100%"
-                p="20px"
+            {boxes.map((box, index) => (
+              <Link
+                key={index}
+                href={box.linkUrl}
+                w={{ base: "100%", md: "30%" }}
               >
-                <Text fontWeight="600">Balance</Text>
-                <Heading>$0.00</Heading>
-                <Text>
-                  This is the amount you currently have in earnings, available
-                  for your next payout.
-                </Text>
-              </Flex>
-            </Flex>
-            <Flex
-              bg="#ffffff"
-              borderRadius="10px"
-              overflow="hidden"
-              flexDir="column"
-              w={{ base: "100%", md: "35%" }}
-            >
-              <Flex bg="#111111" px="20px" py="8px">
-                <Text fontSize="18px" fontWeight="600" color="white">
-                  Payout Account
-                </Text>
-              </Flex>
-              <Flex
-                flexDirection="column"
-                alignItems="center"
-                justifyContent="center"
-                gap="15px"
-                height="100%"
-                p="20px"
-              >
-                <Button
-                  leftIcon={<FaWallet />}
-                  bg="#9b5de5"
-                  borderColor="#9b5de5"
-                  color="#ffffff"
-                  _hover={{
-                    bg: "#5DE59A",
-                    color: "#ffffff",
-                    borderColor: "#5DE59A",
-                  }}
+                <Box
+                  w={{ base: "100%", md: "100%" }}
+                  h="150px"
+                  bgImage={`linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${box.imageUrl})`}
+                  bgPos="center"
+                  bgSize="cover"
+                  borderRadius="10px"
+                  position="relative"
                 >
-                  WITHDRAW EARNINGS
-                </Button>
-                <Button
-                  leftIcon={<FaStripeS />}
-                  _hover={{
-                    bg: "#111111",
-                    color: "#ffffff",
-                    borderColor: "#111111",
-                  }}
-                >
-                  LINK STRIPE ACCOUNT
-                </Button>
-                <HStack color="#111" gap="5px">
-                  <FaQuestionCircle />
-                  <Link fontWeight="600" onClick={onOpen}>
-                    View Tutorial
-                  </Link>
-                </HStack>
-                <Modal onClose={onClose} isOpen={isOpen} isCentered>
-                  <ModalOverlay />
-                  <ModalContent mx="20px">
-                    <Stack p="20px" gap="15px">
-                      <Box
-                        as="a"
-                        position="absolute"
-                        top="10px"
-                        right="10px"
-                        onClick={onClose}
-                      >
-                        <FaTimes fontSize="20px" />
-                      </Box>
-                      <Heading
-                        fontSize={{ base: "16px", md: "20px" }}
-                        lineHeight="1em"
-                        textAlign="center"
-                      >
-                        How to connect your payout account
-                      </Heading>
-                      <AspectRatio width="100%" height="220px">
-                        <iframe
-                          title="Payout Tutorial"
-                          src="https://www.youtube.com/embed/o3JKJlsGvFw"
-                          allowFullScreen
-                        />
-                      </AspectRatio>
-                      <HStack justifyContent="center" zIndex="1">
-                        <Link
-                          bg="#9b5de5"
-                          href="/"
-                          color="#ffffff"
-                          fontWeight="600"
-                          fontSize="14px"
-                          lineHeight="1em"
-                          py="8px"
-                          px="10px"
-                          borderRadius="5px"
-                          _hover={{
-                            bg: "#111111",
-                          }}
-                          _focus={{
-                            boxShadow: "none",
-                          }}
-                        >
-                          More Tutorials
-                        </Link>
-                        <Link
-                          fontWeight="600"
-                          fontSize="14px"
-                          lineHeight="1em"
-                          py="8px"
-                          px="10px"
-                          borderRadius="5px"
-                          display="flex"
-                          gap="5px"
-                          href="/"
-                        >
-                          Contact Support
-                          <FaArrowRight fontSize="12px" />
-                        </Link>
-                      </HStack>
-                    </Stack>
-                  </ModalContent>
-                </Modal>
-              </Flex>
-            </Flex>
+                  <Center h="100%">
+                    <Text fontSize="24px" color="white" fontWeight="600">
+                      {box.text}
+                    </Text>
+                  </Center>
+                </Box>
+              </Link>
+            ))}
           </Flex>
-          <Stack gap="15px">
-            <Heading fontSize="24px" alignSelf="flex-start">
-              Recent Payouts
-            </Heading>
-            <PayoutHistory />
-          </Stack>
         </Flex>
       </Flex>
     </Flex>

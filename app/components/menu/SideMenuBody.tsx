@@ -57,6 +57,7 @@ const SideMenuBody = () => {
         <BoxLink href="/audiopost" text="Audio Post" />
         <BoxLink href="/tourdate" text="Tour Date" />
         <BoxLink href="/product" text="Product" />
+        <BoxLink href="/textpost" text="Text Post" />
 
         <Box py="10px">
           <Divider borderColor="#6b46c1" />

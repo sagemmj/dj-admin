@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Button,
@@ -17,6 +18,13 @@ import FormFooter from "~/components/forms/formfooter";
 import HeaderAdmin from "~/components/HeaderAdmin";
 
 export default function VideoPost() {
+  const [selectedButton, setSelectedButton] = React.useState("");
+  const [bgColor, setBgColor] = React.useState("");
+
+  const handleButtonClick = (buttonId: string) => {
+    setSelectedButton(buttonId);
+    setBgColor(buttonId === "single" || buttonId === "multiple" ? "black" : "");
+  };
   return (
     <Flex
       w="100%"
@@ -50,22 +58,49 @@ export default function VideoPost() {
                 fontSize="20px"
                 display="flex"
                 alignItems="center"
-                gap="6px"
-                py="10px"
+                py="15px"
               >
-                <FaImages fontSize="16px" /> Create Video Post
+                Create Video Post
               </Heading>
             </Flex>
-            <Stack p="20px">
+            <Stack px="20px" pt="10px" pb="20px">
+              <Box
+                color="#111"
+                fontSize="16px"
+                fontWeight="600"
+                lineHeight="1em"
+                mb="5px"
+              >
+                Select Post Type
+              </Box>
+              <HStack mb={4}>
+                <Button
+                  onClick={() => handleButtonClick("single")}
+                  bg={selectedButton === "single" ? "black" : "#300a6e"}
+                  color={selectedButton === "single" ? "white" : "white"}
+                  _hover={{ bg: "#6000fc" }}
+                >
+                  Video Link
+                </Button>
+                <Button
+                  onClick={() => handleButtonClick("multiple")}
+                  bg={selectedButton === "multiple" ? "black" : "#300a6e"}
+                  color={selectedButton === "multiple" ? "white" : "white"}
+                  _hover={{ bg: "#6000fc" }}
+                >
+                  Upload Video
+                </Button>
+              </HStack>
               <FormControl mb={4}>
                 <Textarea placeholder="Write something about this post..." />
               </FormControl>
-              <FormControl mb={4}>
-                <FormLabel>Upload Video</FormLabel>
-                <Input borderWidth="0px" p="2px" type="file" accept="video/*" />
-              </FormControl>
-
-              <FormControl mb={4}>
+              <FormControl
+                mb={4}
+                id="single"
+                style={{
+                  display: selectedButton === "single" ? "block" : "none",
+                }}
+              >
                 <FormLabel>Video Link</FormLabel>
                 <Input
                   type="text"
@@ -74,6 +109,16 @@ export default function VideoPost() {
                 <Box lineHeight="1em" fontSize="12px" mt="10px">
                   YouTube & Vimeo links accepted
                 </Box>
+              </FormControl>
+              <FormControl
+                mb={4}
+                id="multiple"
+                style={{
+                  display: selectedButton === "multiple" ? "block" : "none",
+                }}
+              >
+                <FormLabel>Upload Video</FormLabel>
+                <Input borderWidth="0px" p="2px" type="file" accept="video/*" />
               </FormControl>
 
               <FormControl mb={4}>

@@ -179,6 +179,7 @@ export default function Product() {
               <FileChoices />
 
               <Button
+                mt={4}
                 type="submit"
                 background="#300a6e"
                 color="#fff"
