@@ -1,22 +1,4 @@
-import {
-  AspectRatio,
-  Box,
-  Flex,
-  Heading,
-  Link,
-  Text,
-  Center,
-  Image,
-  VStack,
-} from "@chakra-ui/react";
-import PayoutHistory from "~/components/payouts/PayoutHistory";
-import {
-  FaArrowRight,
-  FaQuestionCircle,
-  FaStripeS,
-  FaTimes,
-  FaWallet,
-} from "react-icons/fa";
+import { Flex, Link, Text, Image, VStack } from "@chakra-ui/react";
 import HeaderAdmin from "~/components/HeaderAdmin";
 const boxes = [
   {

@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Link } from "@chakra-ui/react";
+import { Flex, Link } from "@chakra-ui/react";
 
 export default function EarningsMenu() {
   return (

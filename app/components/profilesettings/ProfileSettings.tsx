@@ -1,19 +1,15 @@
 import {
   Box,
   Button,
-  Flex,
   FormControl,
   FormLabel,
-  Heading,
-  HStack,
   Select,
   Stack,
   Input,
-  Text,
   Textarea,
   Divider,
 } from "@chakra-ui/react";
-import { FaArrowRight, FaImages } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { countries } from "./CountryList";
 import ProfileImages from "./ProfileImages";
 

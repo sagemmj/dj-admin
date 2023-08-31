@@ -1,15 +1,11 @@
-import React from "react";
 import {
-  Box,
   Button,
   Flex,
   FormControl,
   FormLabel,
   Heading,
-  HStack,
   Select,
   Stack,
-  Input,
   Textarea,
 } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";

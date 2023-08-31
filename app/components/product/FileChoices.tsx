@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, HStack, Stack, Tooltip } from "@chakra-ui/react";
 
 // Define the props for the FileTag component

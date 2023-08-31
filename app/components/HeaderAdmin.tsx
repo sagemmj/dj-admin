@@ -10,12 +10,7 @@ import {
   useDisclosure,
   Icon,
 } from "@chakra-ui/react";
-import {
-  FaArrowLeft,
-  FaArrowRight,
-  FaHeadphones,
-  FaTimes,
-} from "react-icons/fa";
+import { FaArrowLeft, FaTimes } from "react-icons/fa";
 import SideMenuBody from "./menu/SideMenuBody";
 
 export default function HeaderAdmin() {

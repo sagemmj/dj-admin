@@ -8,7 +8,6 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import ConnectedAccounts from "~/components/partners/ConnectedAccounts";
-import Header from "~/components/Header";
 import { FaLink, FaCopy } from "react-icons/fa";
 import QRcode from "~/components/partners/QRcode";
 import HeaderAdmin from "~/components/HeaderAdmin";

@@ -1,19 +1,5 @@
-import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  HStack,
-  Select,
-  Stack,
-  Input,
-  Text,
-  Textarea,
-} from "@chakra-ui/react";
-import { FaArrowRight, FaImages } from "react-icons/fa";
-import { countries } from "./CountryList";
+import { Button, FormControl, FormLabel, Stack, Input } from "@chakra-ui/react";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function ProfileLinks() {
   return (

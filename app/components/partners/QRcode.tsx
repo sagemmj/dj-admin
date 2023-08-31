@@ -1,7 +1,6 @@
 import {
   Box,
   Flex,
-  Heading,
   Button,
   Img,
   Modal,
