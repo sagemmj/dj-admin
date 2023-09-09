@@ -1,28 +1,4 @@
-import {
-  Button,
-  Box,
-  AbsoluteCenter,
-  Image,
-  Flex,
-  FormControl,
-  FormLabel,
-  Heading,
-  Input,
-  Stack,
-  Text,
-  useBreakpointValue,
-  InputGroup,
-  InputRightElement,
-  Divider,
-  HStack,
-} from "@chakra-ui/react";
-import {
-  FaArrowRight,
-  FaGoogle,
-  FaMagic,
-  FaEye,
-  FaEyeSlash,
-} from "react-icons/fa";
+import { Button, Flex, HStack, Image, Text } from "@chakra-ui/react";
 
 export default function AuthHeader() {
   return (
@@ -40,6 +16,8 @@ export default function AuthHeader() {
       <Image
         src="https://files.djfan.app/images/djfan-beta.png"
         width="110px"
+        onClick={() => (window.location.href = "https://djfan.app")}
+        cursor="pointer"
       />
       <HStack gap="15px">
         <Text fontSize="14px" color="#fff">
