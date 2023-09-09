@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Stack, HStack, Image } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import { useState } from "react";
-import { FaArrowRight, FaHeadphones, FaTimes } from "react-icons/fa";
+import { FaHeadphones } from "react-icons/fa";
 import { MdOutlineClose } from "react-icons/md";
 import { keyframes } from "@emotion/react"; // or 'styled-components'
 const moveUp = keyframes`
@@ -33,6 +33,11 @@ export default function AuthFooterBar() {
       setIsVisible(false);
     }, 1500); // match the duration of your animation
   };
+
+  if (!isVisible) {
+    return null;
+  }
+
   return (
     isVisible && (
       <Flex
