@@ -2,176 +2,153 @@ import {
   Button,
   Box,
   AbsoluteCenter,
-  Image,
   Flex,
+  Image,
   FormControl,
-  FormLabel,
   Heading,
   Input,
   Stack,
+  Link,
   Text,
   useBreakpointValue,
   InputGroup,
-  InputRightElement,
+  InputLeftAddon,
   Divider,
 } from "@chakra-ui/react";
 import {
-  FaArrowRight,
   FaGoogle,
-  FaMagic,
-  FaEye,
-  FaEyeSlash,
-  FaLock,
+  FaFacebookF,
+  FaEnvelope,
+  FaPlayCircle,
 } from "react-icons/fa";
-import { useState } from "react";
 
-export default function Signin() {
-  const [email, setEmail] = useState("");
-  const [emailCreds, setEmailCreds] = useState("");
-  const [passwordCreds, setPasswordCreds] = useState("");
-  const [showPasswordInput, setShowPasswordInput] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+export default function SignUp() {
   return (
     <Flex
       w="100%"
-      minH="100vh"
-      pt={{ base: "120px", md: "180px" }}
+      h="100vh"
+      maxH="100vh"
+      pt={{ base: "90px", md: "180px" }}
       justifyContent="center"
       bg="#111111"
       position="relative"
+      overflow="hidden"
     >
-      <Flex
-        w="full"
-        maxW="1200px"
-        gap="10px"
-        py={{ base: "20px", md: "30px" }}
-        px={{ base: "20px", md: "30px" }}
-        pos="absolute"
-        justifyContent="flex-end"
-        alignItems="center"
-        top="0px"
-      >
-        <Text fontSize="14px" color="#fff">
-          New to DJfan?
+      <Flex position="absolute" top="10px" right="10px">
+        <Text fontSize="12px" color="#fff" textAlign="center">
+          Already have an account?{" "}
+          <Link color="cyan" href="#">
+            Sign in
+          </Link>
         </Text>
-        <Button
-          bg="white"
-          borderRadius="5px"
-          as="a"
-          href="https://auth.djfan.app/api/auth/signup"
-          target="_blank"
-          fontSize="14px"
-          lineHeight="1em"
-          fontWeight="800"
-          color="#111111"
-          transition="all 0.3s ease"
-          px="10px"
-          height="30px"
-          _hover={{
-            bg: "#be04f1",
-            color: "#fff",
-          }}
-        >
-          SIGN UP
-        </Button>
       </Flex>
       <Stack
-        alignItems="center"
         spacing="6"
         color="white"
-        w={{ base: "80%", md: "unset" }}
+        w={{ base: "90%", md: "325px" }}
+        maxW="325px"
       >
-        <Stack
-          spacing={{ base: "4", md: "4" }}
-          textAlign="center"
-          align="center"
-          gap="25px"
-        >
+        <Stack gap="10px">
           <Image
-            src="https://creators.djfan.app/wp-content/uploads/2023/07/djfan-logo-white-web.png"
-            width="120px"
+            src="https://files.djfan.app/images/djfan-beta.png"
+            width="110px"
+            cursor="pointer"
+            alignSelf="center"
           />
           <Heading
-            px="20px"
-            fontSize={useBreakpointValue({ base: "20px", md: "20px" })}
+            textAlign="center"
+            lineHeight="1em"
+            fontSize={useBreakpointValue({ base: "24px", md: "30px" })}
+            pb="10px"
           >
-            Sign in to your account
+            Become a Creator
           </Heading>
-        </Stack>
-
-        <Stack w={{ base: "90%", md: "300px" }}>
-          <Stack spacing="10px">
-            <FormControl>
-              <FormLabel htmlFor="email-cred" fontSize="14px">
-                Email Address
-              </FormLabel>
-              <Input
-                mt="0px"
-                name="email-cred"
-                placeholder="e.g. daftpunk@gmail.com"
-                type="email"
-                fontSize="16px"
-                lineHeight="1em"
-                _focus={{ border: "2px solid #00f5d4" }}
-                value={emailCreds}
-                onChange={(e) => setEmailCreds(e.target.value)}
-              />
-            </FormControl>
-            <FormControl pb="0px">
-              <FormLabel htmlFor="password-cred" fontSize="14px">
-                Password
-              </FormLabel>
-              <InputGroup>
-                <Input
-                  type={showPassword ? "text" : "password"}
-                  name="password-cred"
-                  placeholder="*********"
-                  fontSize="16px"
-                  lineHeight="1em"
-                  pr="4.5rem"
-                  _focus={{ border: "2px solid #00f5d4" }}
-                  value={passwordCreds}
-                  onChange={(e) => setPasswordCreds(e.target.value)}
-                />
-                <InputRightElement h={"full"}>
-                  <Box
-                    cursor="pointer"
-                    onClick={() =>
-                      setShowPassword((showPassword) => !showPassword)
-                    }
-                  >
-                    {showPassword ? <FaEye /> : <FaEyeSlash />}
-                  </Box>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
-            <Button
-              rightIcon={<FaArrowRight />}
-              color="white"
-              bg="#be04f1"
-              mt="10px"
-              _hover={{ color: "#be04f1", bg: "#ffffff" }}
-            >
-              SIGN IN
-            </Button>
-          </Stack>
-
-          <Flex w="100%">
-            <Text
+          <Button
+            color="white"
+            bg="black"
+            _hover={{ color: "#111", bg: "#fff" }}
+            border="1px solid #ffffff"
+            leftIcon={<FaGoogle />}
+            iconSpacing="3"
+          >
+            Sign in with Google
+          </Button>
+          <Button
+            color="white"
+            bg="black"
+            _hover={{ color: "#111", bg: "#fff" }}
+            border="1px solid #ffffff"
+            leftIcon={<FaFacebookF />}
+            iconSpacing="3"
+          >
+            Sign in with Facebook
+          </Button>
+          <Box position="relative" py="15px">
+            <Divider />
+            <AbsoluteCenter
               fontSize="14px"
-              w="100%"
-              mt="10px"
-              fontWeight="500"
-              cursor="pointer"
-              color="#ffffff"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              _hover={{ textDecoration: "underline", color: "#58faea" }}
+              bg="#111111"
+              w="60%"
+              textAlign={"center"}
             >
-              Forgot password?
-            </Text>
-          </Flex>
+              or continue with email
+            </AbsoluteCenter>
+          </Box>
+          <FormControl>
+            <InputGroup
+              size="md"
+              overflow="hidden"
+              borderRadius="0px"
+              border="1px solid #fff"
+            >
+              <InputLeftAddon
+                bg="#111"
+                borderRadius="0px"
+                borderRight="1px solid #fff"
+              >
+                <FaEnvelope fontSize="18px" color="#fff" />
+              </InputLeftAddon>
+              <Input
+                type="email"
+                borderRadius="0px"
+                borderWidth="0"
+                borderColor="#ffffff00"
+                placeholder="Email Address"
+                focusBorderColor="#ffffff00"
+                bg="#fff"
+                color="#111"
+              />
+            </InputGroup>
+          </FormControl>
+
+          <Button
+            rightIcon={<FaPlayCircle />}
+            color="white"
+            bg="#be04f1"
+            mt="5px"
+            as="a"
+            href="/create-account"
+            _hover={{ color: "#be04f1", bg: "#ffffff" }}
+          >
+            GET STARTED
+          </Button>
+          <Text fontSize="12px" textAlign="center">
+            By signing up, you are creating a DJfan account and agree to
+            DJfan's&nbsp;
+            <Link color="cyan" href="#">
+              Terms
+            </Link>
+            &nbsp;and&nbsp;
+            <Link color="cyan" href="#">
+              Privacy Policy
+            </Link>
+          </Text>
+          <Text fontSize="12px" textAlign="center">
+            Already have an account?{" "}
+            <Link color="cyan" href="#">
+              Sign in
+            </Link>
+          </Text>
         </Stack>
       </Stack>
     </Flex>

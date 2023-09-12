@@ -1,5 +1,7 @@
 import { Box, Flex, Link, Text, Center } from "@chakra-ui/react";
+import FooterIcons from "~/components/FooterIcons";
 import HeaderAdmin from "~/components/HeaderAdmin";
+import SEO from "~/SEO";
 const boxes = [
   {
     text: "Create Post",
@@ -42,6 +44,12 @@ export default function Index() {
       bg="#ececec"
       pb="50px"
     >
+      <SEO
+        title="Admin Dashboard - DJFan App"
+        description="Manage your DJFan content, view earnings, connect with fans, and more."
+        url="https://dj-admin.vercel.app/"
+        image="https://media.djfan.app/images/admin-dashboard.jpg" // Example image for the admin dashboard. Update this to your desired image.
+      />
       <HeaderAdmin />
       <Flex w="100%" justifyContent="center">
         <Flex
@@ -79,6 +87,7 @@ export default function Index() {
           </Flex>
         </Flex>
       </Flex>
+      <FooterIcons />I
     </Flex>
   );
 }
