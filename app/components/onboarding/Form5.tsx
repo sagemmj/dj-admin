@@ -1,110 +1,118 @@
-"use client";
-
+import { useState } from "react";
 import {
   Button,
   Heading,
   Flex,
+  VStack,
+  Box,
   FormControl,
   FormLabel,
   Input,
-  InputGroup,
-  FormHelperText,
-  Textarea,
   Select,
   Stack,
-  InputRightElement,
+  Image,
+  IconButton,
+  HStack,
+  Text, Avatar
 } from "@chakra-ui/react";
-import { FaArrowRight } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
+import { FiHeadphones } from "react-icons/fi";
+import { countries } from "../profilesettings/CountryList";
+
+const helpStyle = {
+  fontSize: "12px",
+  lineHeight: "1em",
+  pt: "10px",
+  pl:"10px"
+};
 
 export const Form5 = () => {
+  const [profileImage, setProfileImage] = useState(null);
+  const [profilePreview, setProfilePreview] = useState("");
+  const [coverImage, setCoverImage] = useState(null);
+  const [coverPreview, setCoverPreview] = useState("");
+
+  const handleProfileImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProfileImage(file);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setProfilePreview(reader.result);
+      };
+    }
+  };
+
+  const handleCoverImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setCoverImage(file);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = () => {
+        setCoverPreview(reader.result);
+      };
+    }
+  };
+
+  const handleRemoveProfileImage = () => {
+    setProfileImage(null);
+    setProfilePreview("");
+  };
+
+  const handleRemoveCoverImage = () => {
+    setCoverImage(null);
+    setCoverPreview("");
+  };
+
   return (
-    <>
-      <Heading w="100%" textAlign={"center"} fontWeight="normal" mb="2%">
-        User Details
-      </Heading>
-      <Stack p="20px" bg="#fff" mt="20px" borderRadius="10px">
-        <FormControl mb={4}>
-          <FormLabel>First Name</FormLabel>
-          <Input type="text" placeholder=" First Name" />
-        </FormControl>
+    <Stack bg="#fff" pt="20px" pb="20px" px="20px" gap="15px">
+      <Box textAlign="center">
+        <Heading mb="5px"fontSize="20px">Profile & Cover Photos</Heading>
+        <Heading fontSize="14px" fontWeight="500">Finally, let's add some photos!</Heading>
+        </Box>
+      
         <FormControl>
-          <FormLabel htmlFor="password" fontWeight={"normal"} mt="2%">
-            Password
-          </FormLabel>
-          <InputGroup size="md">
-            <Input
-              pr="4.5rem"
-              type={show ? "text" : "password"}
-              placeholder="Enter password"
-            />
-            <InputRightElement width="4.5rem">
-              <Button h="1.75rem" size="sm" onClick={handleClick}>
-                {show ? "Hide" : "Show"}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-        </FormControl>
+        <FormLabel>Upload Profile Avatar</FormLabel>
+        <HStack position="relative">
+          <label>
+            <Input type="file" accept="image/*" onChange={handleProfileImageChange} style={{ display: 'none' }} />
+            <Button as="span">Select Image</Button>
+          </label>
+        </HStack>
+      </FormControl>
 
-        <FormControl mb={4}>
-          <FormLabel>Last Name</FormLabel>
-          <Input type="text" placeholder="Last Name" />
-        </FormControl>
+      <FormControl>
+        <FormLabel>Upload Cover Photo</FormLabel>
+        <HStack position="relative">
+          <label>
+            <Input type="file" accept="image/*" onChange={handleCoverImageChange} style={{ display: 'none' }} />
+            <Button as="span">Select Image</Button>
+          </label>
+        </HStack>
+      </FormControl>
 
-        <FormControl mb={4}>
-          <FormLabel>DJ Name</FormLabel>
-          <Input type="text" placeholder="Enter your DJ name" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Title</FormLabel>
-          <Input type="text" placeholder="e.g. DJ & Producer" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Music Genre</FormLabel>
-          <Input type="text" placeholder="e.g. Techno, Tech House" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Location</FormLabel>
-          <Input type="text" placeholder="Enter your location" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Bookings Contact</FormLabel>
-          <Input type="text" placeholder="Enter your bookings contact" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Management Contact</FormLabel>
-          <Input type="text" placeholder="Enter your management contact" />
-        </FormControl>
-        <FormControl mb={4}>
-          <FormLabel>About Me</FormLabel>
-          <Textarea placeholder="Write something about yourself..." />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>New Email Address</FormLabel>
-          <Input type="text" placeholder="Enter only username (no link)" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Confirm Email Address</FormLabel>
-          <Input type="text" placeholder="Enter only username (no link)" />
-        </FormControl>
-
-        <Button
-          type="submit"
-          background="#300a6e"
-          color="#fff"
-          fontSize="18px"
-          _hover={{ background: "#111" }}
-          height="45px"
-        >
-          UPDATE PROFILE <FaArrowRight style={{ marginLeft: "5px" }} />
-        </Button>
-      </Stack>
-    </>
+      
+      <Box position="relative" mt="2">
+          <Stack py="30px" alignItems="center" position="relative" bgImage={coverPreview} bgSize="cover" bgColor="grey" bgRepeat="no-repeat" bgPos="center" opacity="0.7" >
+          {coverPreview && (
+            <Box zIndex="10" aria-label="Remove image" position="absolute" bg="black" top="10px" right="10px" onClick={handleRemoveCoverImage} borderRadius="100%" p="2px">
+            <FaTimes color="white" />
+           </Box>
+            )}
+            <VStack position="relative">
+            {profilePreview && (
+            <Box aria-label="Remove image" position="absolute" bg="black" top="-5px" right="-15px" onClick={handleRemoveProfileImage} borderRadius="100%" p="2px">
+             <FaTimes color="white" />
+            </Box>
+            )}
+              <Avatar bg="black" src={profilePreview} showBorder borderColor="cyan" size="lg" />
+             
+            </VStack>
+          </Stack>
+          <Text {...helpStyle}>Begin uploading to preview your profile images.</Text>
+        </Box>
+    </Stack>
   );
 };
