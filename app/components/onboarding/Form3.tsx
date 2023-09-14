@@ -17,21 +17,27 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { FaInstagram, FaLink, FaSoundcloud } from "react-icons/fa";
-
+const iconStyle = {
+  borderRadius:"0px",
+                borderWidth:"0",
+                borderColor:"#ffffff00",
+                p:"0px 2px 0px 0px",
+                width:"40px",
+                justifyContent:"center",
+};
 export const Form3 = () => {
   const [IG, setIG] = useState("");
   const [SC, setSC] = useState("");
   const [WB, setWB] = useState("");
   return (
-    <>
-      <Heading w="100%" textAlign={"center"} fontWeight="normal">
-        Profile Links
-      </Heading>
-      <Stack>
-        <FormControl mb={4}>
+    <Stack bg="#fff" pt="20px" pb="20px" px="20px" gap="15px">
+        <Box textAlign="center">
+        <Heading mb="5px"fontSize="20px">Add Profile Links</Heading>
+        <Heading fontSize="14px" fontWeight="500">Link to your website & other social profiles</Heading>
+        </Box>
+        <FormControl>
           <Box border="2px solid #3e0080" overflow="hidden" borderRadius="5px">
             <InputGroup
-              size="lg"
               overflow="hidden"
               borderRadius="0px"
               borderWidth="0"
@@ -39,10 +45,7 @@ export const Form3 = () => {
             >
               <InputLeftAddon
                 bgGradient="linear(to-r,#5c03bc, #e536ab)"
-                borderRadius="0px"
-                borderWidth="0"
-                borderColor="#ffffff00"
-                width="55px"
+                {...iconStyle}
               >
                 <FaInstagram fontSize="24px" color="white" />
               </InputLeftAddon>
@@ -70,10 +73,9 @@ export const Form3 = () => {
             </Link>
           )}
         </FormControl>
-        <FormControl mb={4}>
+        <FormControl >
           <Box border="2px solid #FF5500" overflow="hidden" borderRadius="5px">
             <InputGroup
-              size="lg"
               overflow="hidden"
               borderRadius="0px"
               borderWidth="0"
@@ -81,12 +83,9 @@ export const Form3 = () => {
             >
               <InputLeftAddon
                 bg="#FF5500"
-                borderRadius="0px"
-                borderWidth="0"
-                borderColor="#ffffff00"
-                width="55px"
+                {...iconStyle}
               >
-                <FaSoundcloud fontSize="24px" color="white" />
+                <FaSoundcloud fontSize="25px" color="white" />
               </InputLeftAddon>
               <Input
                 type="text"
@@ -112,10 +111,9 @@ export const Form3 = () => {
             </Link>
           )}
         </FormControl>
-        <FormControl mb={4}>
+        <FormControl>
           <Box border="2px solid #111" overflow="hidden" borderRadius="5px">
             <InputGroup
-              size="lg"
               overflow="hidden"
               borderRadius="0px"
               borderWidth="0"
@@ -123,10 +121,7 @@ export const Form3 = () => {
             >
               <InputLeftAddon
                 bg="#fff"
-                borderRadius="0px"
-                borderWidth="0"
-                borderColor="#ffffff00"
-                width="55px"
+                {...iconStyle}
                 borderRight="2px solid #111"
               >
                 <FaLink fontSize="20px" color="#111" />
@@ -157,6 +152,5 @@ export const Form3 = () => {
           )}
         </FormControl>
       </Stack>
-    </>
   );
 };

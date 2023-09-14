@@ -5,12 +5,14 @@ import {
   Progress,
   Box,
   ButtonGroup,
+  ChakraProvider,
   HStack,
   Button,
   Stack,
   Flex,
   VStack,
   Step,
+  extendTheme,
   Image,
   Text,
   StepDescription,
@@ -29,20 +31,57 @@ import { Form2 } from "~/components/onboarding/Form2";
 import { Form3 } from "~/components/onboarding/Form3";
 import { Form4 } from "~/components/onboarding/Form4";
 import { Form5 } from "~/components/onboarding/Form5";
+const activeLabelStyles = {
+  transform: "scale(0.85) translateY(-24px)"
+};
+export const theme = extendTheme({
+  components: {
+    Form: {
+      variants: {
+        floating: {
+          container: {
+            _focusWithin: {
+              label: {
+                ...activeLabelStyles
+              }
+            },
+            "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label": {
+              ...activeLabelStyles
+            },
+            label: {
+              top: 0,
+              left: 25,
+              zIndex: 2,
+              position: "absolute",
+              backgroundColor: "white",
+              pointerEvents: "none",
+              mx: 3,
+              px: 1,
+              my: 2,
+              transformOrigin: "left top"
+            }
+          }
+        }
+      }
+    }
+  }
+});
 
 export default function CreateAccount() {
   const toast = useToast();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(20);
   const steps = [
-    { title: "First", description: "Contact Info" },
-    { title: "Second", description: "Date & Time" },
-    { title: "Third", description: "Select Rooms" },
+    { title: "1", description: "Names" },
+    { title: "2", description: "Username" },
+    { title: "3", description: "Basics" },
+    { title: "4", description: "Links" },
+    { title: "5", description: "Photos" },
     // Add more steps if needed
   ];
-  const activeStepText = steps[step].description;
 
   return (
+    <ChakraProvider theme={theme}>
     <Flex
       bgGradient="linear(to-r, #0e0725, #5c03bc, #e536ab)"
       minHeight="100vh"
@@ -69,40 +108,29 @@ export default function CreateAccount() {
               src="https://media.djfan.app/images/djfan-logo-beta.png"
             />
           </Box>
-          <Box color="#fff" fontSize="20px" fontWeight="600">
-            Complete DJ Profile
-          </Box>
         </HStack>
       </Flex>
 
-      <VStack>
-        <Stack>
+      <VStack pt="20px">
+        <Stack pb="10px">
           <Stepper size="sm" index={step - 1}>
             {steps.map((_, index) => (
               <Step key={index}>
                 <StepIndicator>
-                  <StepStatus complete={<StepIcon />} />
+                  <StepStatus complete={<StepIcon />} 
+              />
                 </StepIndicator>
                 <StepSeparator />
               </Step>
             ))}
           </Stepper>
-          <Text
-            w="100%"
-            textAlign="center"
-            color="#fff"
-            fontWeight="600"
-            mb="5px"
-          >
-            {steps[step - 1].title}: <b>{steps[step - 1].description}</b>
-          </Text>
+          
         </Stack>
 
         <Box
           width="100%"
           bg="#fff"
-          maxWidth={600}
-          m="15px"
+          maxWidth="400px"
           as="form"
           overflow="hidden"
           display="flex"
@@ -115,9 +143,9 @@ export default function CreateAccount() {
           ) : step === 2 ? (
             <Form2 />
           ) : step === 3 ? (
-            <Form3 />
-          ) : step === 4 ? (
             <Form4 />
+          ) : step === 4 ? (
+            <Form3 />
           ) : (
             <Form5 />
           )}
@@ -157,12 +185,12 @@ export default function CreateAccount() {
                   variant="solid"
                   opacity="1"
                 >
-                  Next
+                  Continue
                 </Button>
               ) : (
                 <Button
                   w="7rem"
-                  colorScheme="red"
+                  colorScheme="green"
                   variant="solid"
                   onClick={() => {
                     toast({
@@ -174,7 +202,7 @@ export default function CreateAccount() {
                     });
                   }}
                 >
-                  Submit
+                  FINISH
                 </Button>
               )}
             </Flex>
@@ -182,5 +210,6 @@ export default function CreateAccount() {
         </Box>
       </VStack>
     </Flex>
+    </ChakraProvider>
   );
 }

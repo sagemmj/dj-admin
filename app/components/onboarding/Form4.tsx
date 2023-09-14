@@ -1,88 +1,95 @@
 "use client";
-
+import { useState } from "react";
 import {
   Button,
   Heading,
   Flex,
+  Text,
+  HStack,
+  List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList,
+  Box,
   FormControl,
   FormLabel,
   Input,
-  InputGroup,
-  FormHelperText,
-  Textarea,
   Select,
   Stack,
-  InputRightElement,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverCloseButton,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
 } from "@chakra-ui/react";
-import { FaArrowRight } from "react-icons/fa";
-
+import { countries } from "../profilesettings/CountryList";
+const helpStyle = {
+  fontSize: "12px",
+  lineHeight: "1em",
+  pt: "10px",
+  pl:"10px"
+};
 export const Form4 = () => {
+  
   return (
-    <>
-      <Heading w="100%" textAlign={"center"} fontWeight="normal" mb="2%">
-        User Details
-      </Heading>
-      <Stack p="20px" bg="#fff" mt="20px" borderRadius="10px">
-        <FormControl mb={4}>
-          <FormLabel>First Name</FormLabel>
-          <Input type="text" placeholder=" First Name" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Last Name</FormLabel>
-          <Input type="text" placeholder="Last Name" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Title</FormLabel>
+    <Stack bg="#fff" pt="20px" pb="20px" px="20px" gap="15px">
+      <Box textAlign="center">
+        <Heading mb="5px"fontSize="20px">Basic Profile Information</Heading>
+        <Box fontSize="14px" fontWeight="500">You can edit all of these later</Box>
+        </Box>
+        
+        <FormControl>
+          <FormLabel>Short Bio</FormLabel>
           <Input type="text" placeholder="e.g. DJ & Producer" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Music Genre</FormLabel>
-          <Input type="text" placeholder="e.g. Techno, Tech House" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Location</FormLabel>
-          <Input type="text" placeholder="Enter your location" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Bookings Contact</FormLabel>
-          <Input type="text" placeholder="Enter your bookings contact" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Management Contact</FormLabel>
-          <Input type="text" placeholder="Enter your management contact" />
-        </FormControl>
-        <FormControl mb={4}>
-          <FormLabel>About Me</FormLabel>
-          <Textarea placeholder="Write something about yourself..." />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>New Email Address</FormLabel>
-          <Input type="text" placeholder="Enter only username (no link)" />
-        </FormControl>
-
-        <FormControl mb={4}>
-          <FormLabel>Confirm Email Address</FormLabel>
-          <Input type="text" placeholder="Enter only username (no link)" />
-        </FormControl>
-
-        <Button
-          type="submit"
-          background="#300a6e"
-          color="#fff"
-          fontSize="18px"
-          _hover={{ background: "#111" }}
-          height="45px"
-        >
-          UPDATE PROFILE <FaArrowRight style={{ marginLeft: "5px" }} />
-        </Button>
+          <Popover>
+  <PopoverTrigger>
+    <Box {...helpStyle} color="#a600ff" cursor="pointer"textDecoration="underline">More Examples</Box>
+  </PopoverTrigger>
+  <PopoverContent _focus={{boxShadow:"none"}}>
+    <Stack  p="15px">
+      <Heading fontSize="15px" fontWeight="600">Make it short & sweet!</Heading>
+      <UnorderedList fontSize="13px"> 
+  <ListItem>Label Owner & Artist</ListItem>
+  <ListItem>A wild Artist from Ibiza
+</ListItem>
+  <ListItem>Electronic Musician</ListItem>
+  <ListItem>Label Owner & Producer</ListItem>
+  <ListItem>Turntablist & Sound Curator</ListItem>
+</UnorderedList>
       </Stack>
-    </>
+    <PopoverCloseButton />
+  </PopoverContent>
+</Popover>
+  
+          
+
+        </FormControl>
+
+        <FormControl>
+          <FormLabel>Main Location</FormLabel>
+          <Input type="text" placeholder="e.g. Ibiza or London" />
+        </FormControl>
+
+        <FormControl>
+        <FormLabel>Where are you from?</FormLabel>
+        <Select placeholder="Select Country">
+          {countries.map((country, index) => (
+            <option key={index} value={country}>
+              {country}
+            </option>
+          ))}
+        </Select>
+      </FormControl>
+
+        
+    </Stack>
   );
 };

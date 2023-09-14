@@ -1,4 +1,4 @@
-import { ChakraProvider, Box, Heading } from "@chakra-ui/react";
+import { ChakraProvider, Box, Heading, extendTheme } from "@chakra-ui/react";
 import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
@@ -44,7 +44,7 @@ export default function App() {
 
   return (
     <Document>
-      <ChakraProvider>
+      <ChakraProvider >
         <Outlet />
       </ChakraProvider>
     </Document>
