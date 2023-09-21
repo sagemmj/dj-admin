@@ -1,18 +1,14 @@
 import {
     Flex,
-    Link,
     Box,
     Text,
     Heading,
     Button,
     Image,
     VStack,
-    Avatar,
     HStack,
   } from "@chakra-ui/react";
-  import {
-    FaYoutubeSquare,
-  } from "react-icons/fa";
+import FeatureCards from "~/components/home/FeatureCards";
   const buttonStyle = {
     color: "#111",
     background: "#fff",
@@ -108,6 +104,7 @@ import {
             </VStack>
         </Flex>
         </Box>
+        <FeatureCards/>
         <Flex
         w="100%"
         bg="purple.600"
@@ -140,6 +137,7 @@ import {
         </Flex>
         </Flex>
         <Flex py="15px" fontSize="12px"justifyContent="center" bg="#111"color="#fff">© 2023 DJfan Ltd. 1 Quality Court, Chancery Lane, London, WC2A 1HR</Flex>
+      
       </Flex>
     );
   }
