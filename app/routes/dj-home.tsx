@@ -9,6 +9,9 @@ import {
     HStack,
   } from "@chakra-ui/react";
 import FeatureCards from "~/components/home/FeatureCards";
+import FooterCTA from "~/components/home/FooterCTA";
+import PostTypeIcons from "~/components/home/PostTypeIcons";
+import EarningsCalculator from "./calculator";
   const buttonStyle = {
     color: "#111",
     background: "#fff",
@@ -104,7 +107,9 @@ import FeatureCards from "~/components/home/FeatureCards";
             </VStack>
         </Flex>
         </Box>
+        <EarningsCalculator/>
         <FeatureCards/>
+        <PostTypeIcons/> 
         <Flex
         w="100%"
         bg="purple.600"
@@ -136,6 +141,7 @@ import FeatureCards from "~/components/home/FeatureCards";
             </VStack>
         </Flex>
         </Flex>
+        <FooterCTA/>
         <Flex py="15px" fontSize="12px"justifyContent="center" bg="#111"color="#fff">© 2023 DJfan Ltd. 1 Quality Court, Chancery Lane, London, WC2A 1HR</Flex>
       
       </Flex>
