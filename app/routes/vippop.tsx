@@ -33,29 +33,10 @@ import {
   Text,
   Box,
 } from "@chakra-ui/react";
-import { FaFileExcel } from "react-icons/fa";
 import { FiX, FiCheck } from "react-icons/fi";
-import VIPlist from "./VIPlist";
-import { FaQuestion, FaQuestionCircle } from "react-icons/fa";
-import PopUpHero from "./PopUpHero";
-import PopFeatureList from "./PopFeatureList";
-
-const listStyle = {
-  alignItems: "center",
-  gap: "8px",
-  color: "#fff",
-  fontSize: "18px",
-  w: { base: "280px", md: "50%" },
-  pb: "5px",
-};
-
-const iconStyle = {
-  fontSize: "22px",
-};
 
 const popupWidth = {
-  w: { base: "100%", md: "auto" },
-  minW: { base: "100%", md: "500px" },
+  w: { base: "90%", md: "500px" },
 };
 
 export default function VIP() {
@@ -131,7 +112,7 @@ export default function VIP() {
               </Heading>
 
               <Text
-                w="80%"
+                w={{base:"90%",md:"80%"}}
                 color="#fff"
                 fontSize="20px"
                 textAlign="center"
