@@ -1,50 +1,25 @@
-import React, { useState } from "react";
 import {
   Flex,
   Heading,
-  Image,
-  Avatar,
-  HStack,
   VStack,
   Button,
   Modal,
-  Tabs,
-  TabList,
-  Portal,
-  TabPanels,
-  Tab,
-  Tooltip,
-  TabPanel,
   ModalOverlay,
   ModalContent,
   useDisclosure,
-  List,
-  ListItem,
-  ListIcon,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton,
-  PopoverAnchor,
   Text,
-  Box,
 } from "@chakra-ui/react";
-import { FiX, FiCheck } from "react-icons/fi";
+import { FiX } from "react-icons/fi";
 
-const popupWidth = {
-  w: { base: "90%", md: "500px" },
-};
-
-export default function VIP() {
+export default function WelcomeVIPoffer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const claimDiscount = () => {
+    // need to add dynamic link dependent on DJ profile
+  };
   return (
     <>
       <VStack h="100vh" w="100vw" justifyContent="center">
-        <Button onClick={onOpen}>VIP POP UP </Button>
+        <Button onClick={onOpen}>OPEN VIP OFFER POPUP </Button>
       </VStack>
 
       <Modal
@@ -54,16 +29,15 @@ export default function VIP() {
         size={{ base: "lg", md: "md" }}
       >
         <ModalOverlay
-          bg="blackAlpha.300"
+          bg="#111"
           background={`url('http://media.djfan.app/images/product.jpg') no-repeat center center`}
           backgroundSize="cover"
-          backdropFilter="blur(10px) hue-rotate(90deg)"
         />
         <ModalContent
           overflow="hidden"
           borderRadius="10px"
           border="1px solid #fff"
-          {...popupWidth}
+          w={{ base: "90%", md: "500px" }}
         >
           <VStack
             bgGradient="linear(to-r, #0e0725, #5c03bc, #e536ab)"
@@ -71,12 +45,7 @@ export default function VIP() {
             gap="0"
             position="relative"
           >
-            <Flex
-              position="absolute"
-              right="10px"
-              top="10px"
-              zIndex={"8989898"}
-            >
+            <Flex position="absolute" right="10px" top="10px" zIndex={"999"}>
               <FiX
                 color="#fff"
                 onClick={onClose}
@@ -85,7 +54,7 @@ export default function VIP() {
               />
             </Flex>
 
-            <VStack position="relative" py="25px" gap="5px">
+            <VStack py="25px" gap="5px">
               <Heading
                 color="#111"
                 px="8px"
@@ -107,16 +76,17 @@ export default function VIP() {
                 textAlign="center"
                 px="20px"
                 maxW="400px"
+                pb="5px"
               >
                 Enjoy 90% off your first VIP Membership
               </Heading>
-
               <Text
-                w={{base:"90%",md:"80%"}}
+                w={{ base: "90%", md: "80%" }}
                 color="#fff"
                 fontSize="20px"
                 textAlign="center"
                 fontWeight="500"
+                lineHeight="1.2em"
               >
                 Start discovering exclusive content and exploring VIP perks for{" "}
                 <b>only $1</b>
@@ -131,9 +101,7 @@ export default function VIP() {
                 lineHeight="1em"
                 fontWeight={"700"}
                 _hover={{ bg: "#fff" }}
-                onClick={() => {
-                  window.location.href = "/";
-                }}
+                onClick={claimDiscount}
               >
                 CLAIM DISCOUNT
               </Button>
