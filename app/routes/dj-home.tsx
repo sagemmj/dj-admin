@@ -12,6 +12,7 @@ import FeatureCards from "~/components/home/FeatureCards";
 import FooterCTA from "~/components/home/FooterCTA";
 import LoginPrompt from "~/components/home/LoginPrompt";
 import PostTypeIcons from "~/components/home/PostTypeIcons";
+import VIPprompt from "~/components/home/VIPprompt";
 import EarningsCalculator from "./calculator";
 const buttonStyle = {
   color: "#111",
@@ -34,7 +35,6 @@ const iconStyle = {
 };
 
 export default function DJhome() {
-  
   return (
     <Flex w="100%" h="100%" minH="100vh" flexDirection="column">
       <Box
@@ -102,6 +102,7 @@ export default function DJhome() {
             <HStack>
               <Button>CREATE ACCOUNT</Button>
             </HStack>
+            <VIPprompt />
             <LoginPrompt />
           </VStack>
         </Flex>
