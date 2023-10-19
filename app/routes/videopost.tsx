@@ -11,6 +11,7 @@ import {
   Stack,
   Input,
   Textarea,
+  Switch,
 } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import FormFooter from "~/components/forms/formfooter";
