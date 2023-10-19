@@ -2,16 +2,12 @@ import React from "react";
 import ReactPlayer from "react-player";
 import {
   Box,
-  Button,
   Flex,
   FormControl,
   FormLabel,
   Heading,
-  HStack,
-  Select,
   Stack,
   Input,
-  Textarea,
   Text,
   Popover,
   PopoverTrigger,
@@ -19,10 +15,11 @@ import {
   PopoverCloseButton,
 } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
+import { FiLock, FiShoppingBag } from "react-icons/fi";
 import HeaderAdmin from "~/components/HeaderAdmin";
 import FormFooter from "~/components/forms/formfooter";
 
-export default function AudioPost() {
+export default function EmbedCheck() {
   const [selectedButton, setSelectedButton] = React.useState("");
   const [bgColor, setBgColor] = React.useState("");
   const [audioLink, setAudioLink] = React.useState("");
@@ -68,48 +65,12 @@ export default function AudioPost() {
                 gap="6px"
                 py="15px"
               >
-                Create Audio Post
+                Embed Checker
               </Heading>
             </Flex>
             <Stack px="20px" pt="10px" pb="20px">
-              <Box
-                color="#111"
-                fontSize="16px"
-                fontWeight="600"
-                lineHeight="1em"
-                mb="5px"
-              >
-                Select Post Type
-              </Box>
-              <HStack mb={4}>
-                <Button
-                  onClick={() => handleButtonClick("single")}
-                  bg={selectedButton === "single" ? "black" : "#300a6e"}
-                  color={selectedButton === "single" ? "white" : "white"}
-                  _hover={{ bg: "#6000fc" }}
-                >
-                  Audio Link
-                </Button>
-                <Button
-                  onClick={() => handleButtonClick("multiple")}
-                  bg={selectedButton === "multiple" ? "black" : "#300a6e"}
-                  color={selectedButton === "multiple" ? "white" : "white"}
-                  _hover={{ bg: "#6000fc" }}
-                >
-                  Upload Audio
-                </Button>
-              </HStack>
-              <FormControl mb={4}>
-                <Textarea placeholder="Write something about this post..." />
-              </FormControl>
-              <FormControl
-                mb={4}
-                id="single"
-                style={{
-                  display: selectedButton === "single" ? "block" : "none",
-                }}
-              >
-                <FormLabel>Audio Link</FormLabel>
+              <FormControl mb={4} id="single">
+                <FormLabel>Video / Audio Link</FormLabel>
                 <Input
                   type="text"
                   name="audiolink"
@@ -121,16 +82,7 @@ export default function AudioPost() {
                   <b>Accepted links</b>: Soundcloud, Spotify, Mixcloud.
                 </Box>
               </FormControl>
-              <FormControl
-                mb={4}
-                id="multiple"
-                style={{
-                  display: selectedButton === "multiple" ? "block" : "none",
-                }}
-              >
-                <FormLabel>Upload Audio File</FormLabel>
-                <input type="file" accept="audio/*" />
-              </FormControl>
+
               {audioLink && (
                 <Flex id="embedPreview" p="0" mb={4} flexDirection="column">
                   <Text pb="10px" fontSize="14px" fontWeight="600" color="#111">
@@ -173,32 +125,8 @@ export default function AudioPost() {
                   </Popover>
                 </Flex>
               )}
-              <FormControl mb={4}>
-                <FormLabel color="#111" fontSize="16px" fontWeight="600">
-                  Who can view this post?
-                </FormLabel>
-                <Select placeholder="Select privacy option">
-                  <option value="everyone">Everyone</option>
-                  <option value="gold">Gold Members</option>
-                  <option value="vip">VIP Members</option>
-                </Select>
-              </FormControl>
-
-              <Button
-                type="submit"
-                background="#300a6e"
-                color="#fff"
-                fontSize="18px"
-                _hover={{ background: "#111" }}
-                height="45px"
-              >
-                CREATE POST
-                <FaArrowRight fontSize="14px" style={{ marginLeft: "5px" }} />
-              </Button>
             </Stack>
           </Flex>
-
-          <FormFooter />
         </Flex>
       </Flex>
     </Flex>
