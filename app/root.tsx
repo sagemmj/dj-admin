@@ -32,7 +32,33 @@ function Document({
       <body>
         {children}
         <ScrollRestoration />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function (m, a, z, e) {
+                var s, t;
+                try {
+                  t = m.sessionStorage.getItem('maze-us');
+                } catch (err) {}
+          
+                if (!t) {
+                  t = new Date().getTime();
+                  try {
+                    m.sessionStorage.setItem('maze-us', t);
+                  } catch (err) {}
+                }
+          
+                s = a.createElement('script');
+                s.src = z + '?t=' + t + '&apiKey=' + e;
+                s.async = true;
+                a.getElementsByTagName('head')[0].appendChild(s);
+                m.mazeUniversalSnippetApiKey = e;
+              })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', 'f76ff1a1-48b4-4f8e-8a47-f03585b7fe4b');
+            `,
+          }}
+        />
         <Scripts />
+
         <LiveReload />
       </body>
     </html>
@@ -44,7 +70,7 @@ export default function App() {
 
   return (
     <Document>
-      <ChakraProvider >
+      <ChakraProvider>
         <Outlet />
       </ChakraProvider>
     </Document>
