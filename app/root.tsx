@@ -1,5 +1,17 @@
-import { ChakraProvider, Box, Heading, extendTheme } from "@chakra-ui/react";
+import { ChakraProvider, Box, Heading } from "@chakra-ui/react";
 import type { MetaFunction } from "@remix-run/node";
+import theme from "./theme";
+import "@fontsource/inter/300.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/inter/800.css";
+import "@fontsource/roboto-mono/300.css";
+import "@fontsource/roboto-mono/400.css";
+import "@fontsource/roboto-mono/500.css";
+import "@fontsource/roboto-mono/600.css";
+import "@fontsource/roboto-mono/700.css";
 import {
   Links,
   LiveReload,
@@ -9,6 +21,19 @@ import {
   ScrollRestoration,
   useCatch,
 } from "@remix-run/react";
+import { cssBundleHref } from "@remix-run/css-bundle";
+import type { LinksFunction } from "@remix-run/node";
+
+import "@fontsource-variable/open-sans/wght.css";
+
+export const links: LinksFunction = () => {
+  return [
+    ...(cssBundleHref
+      ? [{ rel: "stylesheet", href: cssBundleHref }]
+      : []),
+    // ...
+  ];
+};
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -70,7 +95,7 @@ export default function App() {
 
   return (
     <Document>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
         <Outlet />
       </ChakraProvider>
     </Document>

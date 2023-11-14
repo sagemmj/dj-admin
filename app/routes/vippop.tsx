@@ -11,6 +11,8 @@ import {
 } from "@chakra-ui/react";
 import { FiX } from "react-icons/fi";
 
+
+
 export default function WelcomeVIPoffer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const claimDiscount = () => {
