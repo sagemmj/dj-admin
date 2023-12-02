@@ -24,7 +24,6 @@ import {
 import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 
-import "@fontsource-variable/open-sans/wght.css";
 
 export const links: LinksFunction = () => {
   return [

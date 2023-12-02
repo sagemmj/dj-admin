@@ -7,12 +7,15 @@ import {
   Image,
   VStack,
   HStack,
+  Link,
 } from "@chakra-ui/react";
+import { FaArrowRight } from "react-icons/fa";
 import FeatureCards from "~/components/home/FeatureCards";
 import FooterCTA from "~/components/home/FooterCTA";
 import LoginPrompt from "~/components/home/LoginPrompt";
 import PostTypeIcons from "~/components/home/PostTypeIcons";
 import VIPprompt from "~/components/home/VIPprompt";
+import { links } from "~/root";
 import EarningsCalculator from "./calculator";
 const buttonStyle = {
   color: "#111",
@@ -65,6 +68,7 @@ export default function DJhome() {
               w="120px"
               src="https://creators.djfan.app/wp-content/uploads/2023/04/djfan-email.png"
             />
+            <Text>PARTNER PROGRAM</Text>
             <Button>SIGN IN</Button>
           </Flex>
         </Flex>
@@ -99,11 +103,26 @@ export default function DJhome() {
               and engage with their fans and access to tools generate a
               consistent passive income.
             </Text>
-            <HStack>
+            <VStack gap="15px">
               <Button>CREATE ACCOUNT</Button>
-            </HStack>
-            <VIPprompt />
-            <LoginPrompt />
+              <Text
+                as={Link}
+                display={"flex"}
+                alignItems={"center"}
+                fontSize={"12px"}
+                color={"white"}
+                fontWeight={"600"}
+                lineHeight={"1em"}
+                gap={"5px"}
+                cursor={"pointer"}
+                href="#"
+                _hover={{
+                  color: "cyan",
+                }}
+              >
+                PARTNER PROGRAM <FaArrowRight />
+              </Text>
+            </VStack>
           </VStack>
         </Flex>
       </Box>
