@@ -17,7 +17,13 @@ import {
   TabPanel,
   Text,
 } from "@chakra-ui/react";
-import { FaArrowRight, FaMusic, FaVideo, FaFile } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaMusic,
+  FaVideo,
+  FaFile,
+  FaHeadphones,
+} from "react-icons/fa";
 import HeaderAdmin from "~/components/HeaderAdmin";
 import FileChoices from "~/components/product/FileChoices";
 import VideoFileChoices from "~/components/product/VideoFileChoices";
@@ -61,7 +67,7 @@ export default function Product() {
           alignItems="center"
         >
           <Flex
-            gap="10px"
+            gap="0px"
             bg="#fff"
             flexDirection="column"
             w={{ base: "100%", sm: "500px" }}
@@ -87,12 +93,17 @@ export default function Product() {
                   <FaMusic />
                   Track
                 </Tab>
+
                 <Tab gap="6px" fontWeight="600">
                   <FaVideo />
                   Video
                 </Tab>
                 <Tab gap="6px" fontWeight="600">
                   <FaFile /> File
+                </Tab>
+                <Tab gap="6px" fontWeight="600">
+                  <FaHeadphones />
+                  Podcast
                 </Tab>
               </TabList>
 
@@ -365,6 +376,118 @@ export default function Product() {
                       />
                     </FormControl>
                     <FileChoices2 />
+
+                    <Button
+                      mt={4}
+                      type="submit"
+                      background="#300a6e"
+                      color="#fff"
+                      fontSize="18px"
+                      _hover={{ background: "#111" }}
+                      height="45px"
+                    >
+                      CREATE PRODUCT{" "}
+                      <FaArrowRight
+                        fontSize="14px"
+                        style={{ marginLeft: "5px" }}
+                      />
+                    </Button>
+                  </Stack>
+                </TabPanel>
+                <TabPanel p={0}>
+                  <Stack px="20px" pt="20px" pb="20px">
+                    <Text fontSize="18px" fontWeight="600">
+                      Create Podcast Product
+                    </Text>
+                    <FormControl isRequired mb={4}>
+                      <FormLabel>Podcast Name</FormLabel>
+                      <Input
+                        type="text"
+                        value={releaseName}
+                        placeholder="Name of Release / Track"
+                        onChange={(e) => setReleaseName(e.target.value)}
+                      />
+                    </FormControl>
+
+                    <FormControl mb={4}>
+                      <FormLabel>Description</FormLabel>
+                      <Textarea
+                        value={description}
+                        placeholder="Write something about this podcast"
+                        onChange={(e) => setDescription(e.target.value)}
+                      />
+                    </FormControl>
+
+                    <FormControl isRequired mb={4}>
+                      <FormLabel>Podcast Artwork</FormLabel>
+                      <Input
+                        type="file"
+                        accept="image/*"
+                        border="0px"
+                        p="2px"
+                        onChange={(e) => setReleaseArtwork(e.target.value)}
+                      />
+                    </FormControl>
+
+                    <FormControl isRequired mb={4}>
+                      <FormLabel>Price ($ USD)</FormLabel>
+                      <NumberInput
+                        value={price}
+                        onChange={(value) => setPrice(Number(value))}
+                        placeholder="e.g. 2.00"
+                      >
+                        <NumberInputField />
+                      </NumberInput>
+                    </FormControl>
+
+                    <FormControl isRequired mb={4}>
+                      <FormLabel>Genre</FormLabel>
+                      <Input
+                        type="text"
+                        value={genre}
+                        onChange={(e) => setGenre(e.target.value)}
+                        placeholder="e.g. Tech House"
+                      />
+                    </FormControl>
+
+                    <FormControl isRequired mb={4}>
+                      <FormLabel>Release Date</FormLabel>
+                      <Input
+                        type="date"
+                        value={releaseDate}
+                        placeholder="Select a date"
+                        onChange={(e) => setReleaseDate(e.target.value)}
+                      />
+                    </FormControl>
+
+                    <FormControl mb={4}>
+                      <FormLabel>Featured Artists</FormLabel>
+                      <Input
+                        type="text"
+                        placeholder="All Featured Artists"
+                        value={featuredArtists}
+                        onChange={(e) => setFeaturedArtists(e.target.value)}
+                      />
+                    </FormControl>
+
+                    <FormControl mb={4}>
+                      <FormLabel>Downloadable File Name</FormLabel>
+                      <Input type="text" placeholder="e.g. podcast-name.wav" />
+                    </FormControl>
+
+                    <FormControl isRequired mb={4}>
+                      <FormLabel>Downloadable Track File</FormLabel>
+                      <Input
+                        type="file"
+                        accept=".mp3"
+                        border="0px"
+                        p="2px"
+                        onChange={(e) =>
+                          setDownloadableTrackFile(e.target.value)
+                        }
+                      />
+                    </FormControl>
+                    <FileChoices />
 
                     <Button
                       mt={4}
